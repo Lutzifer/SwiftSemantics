@@ -8,7 +8,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - run: mkdir "${{ github.workspace }}/Documentation"
       - name: Generate Documentation
         uses: SwiftDocOrg/swift-doc@master
         with:
