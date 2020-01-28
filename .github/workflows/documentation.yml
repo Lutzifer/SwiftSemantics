@@ -1,6 +1,11 @@
-name: CI
+name: Documentation
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - Sources
 
 jobs:
   build:
