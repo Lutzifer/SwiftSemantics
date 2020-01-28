@@ -11,6 +11,11 @@ jobs:
         os:
           - macOS-latest
           - ubuntu-latest
+        swift: ["5.1"]
+
+    container:
+      image: swift:${{ matrix.swift }}
+      if: runner.os == 'Linux'
 
     steps:
       - name: Checkout
