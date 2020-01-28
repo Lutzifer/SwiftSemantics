@@ -3,19 +3,24 @@ name: CI
 on: [push]
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
+  macos:
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Build and Test
+        run: swift test
+
+  linux:
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        os:
-          - macOS-latest
-          - ubuntu-latest
         swift: ["5.1"]
 
     container:
       image: swift:${{ matrix.swift }}
-      if: runner.os == 'Linux'
 
     steps:
       - name: Checkout
